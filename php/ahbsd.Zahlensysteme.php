@@ -5,7 +5,7 @@ namespace ahbsd\Zahlensysteme
 	 * Interface für grundlegende Funktionen, der Basis eines Zahlensystems.
 	 * 
 	 * @author A. Hermann
-	 * @copy Copyright &copy; 2016 Alexander Hermann - Beratung, Software, Design
+	 * @copy Open Source
 	 * Zahlensysteme
 	 *
 	 * @version 1.0
@@ -45,7 +45,7 @@ namespace ahbsd\Zahlensysteme
    * Basis eines Zahlensystems.
    * 
    * @author A. Hermann
-   * @copy Copyright &copy; 2016 Alexander Hermann - Beratung, Software, Design
+   * @copy Open Source
    * Zahlensysteme
    *
    * @version 1.0
