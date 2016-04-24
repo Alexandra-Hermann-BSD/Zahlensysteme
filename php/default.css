@@ -1,0 +1,38 @@
+@CHARSET "UTF-8";
+
+/*
+ * CSS für Zahlensysteme DEMO
+ * Copyright © 2016 Alexander Hermann – Beratung, Software, Design
+ */
+ 
+ body {
+ 	background-color: #FEFEFE;
+ 	color: black;
+ 	font-family: Helvetica, sans-serif;
+ 	font-size: 12pt;
+ 	font-style: normal;
+ 	font-weight: normal;
+ 	margin: 20pt;
+ }
+ 
+ .code, pre {
+ 	font-family: "Lucida Console", Consolas, Courier, monospace; 
+ }
+ 
+ pre {
+ 	background-color: #ECECEC;
+ 	border-style: dashed;
+ 	border-width: 3pt;
+ 	border-radius: 15pt;
+ 	border-color: #AAAAAA;
+ 	padding: 15pt;
+ }
+ 
+ #FORM {
+ 	background-color: #FFFFEC;
+ 	border-style: solid;
+ 	border-width: 3pt;
+ 	border-radius: 15pt;
+ 	border-color: #0000FF;
+ 	padding: 15pt;
+ }
