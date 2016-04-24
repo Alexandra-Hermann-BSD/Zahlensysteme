@@ -1,0 +1,23 @@
+\begin{struktogramm}(135,88)
+	\assign{Berechnung des Zwischenergebnisses}
+	\assign%
+	{
+		\begin{declaration}[Parameter:]
+			\description{\pVar{b}}{Eine \pKey{int} Variable, die die zu benutzende Zahlenbasis angibt.}
+			\description{\pVar{w}}{Eine \pKey{int} Variable, die den Eingabewert angibt.}
+			\description{\pVar{p}}{Eine \pKey{int} Variable, die die zu benutzende Stellenposition enthält.}	
+		\end{declaration}
+		\begin{declaration}[lokale Variablen:]
+			\description{\pVar{z}}{Eine \pKey{int} Variable als Zähler.}
+			\description{\pVar{result}}{Eine \pKey{int} Variable für das Endergebnis}
+		\end{declaration}
+	}
+	\assign{\pVar{z}$=0$}
+	\assign{\pVar{result}$=1$}
+	\while[8]{\pVar{z}$<$\pVar{p}}
+		\assign{\pVar{result}$ = $\pVar{result}$ * $\pVar{b}}
+		\assign{\pVar{z}$=$\pVar{z}$+1$}
+	\whileend
+	\assign{\pVar{result}$=$\pVar{result}$*$\pVar{w}}
+	\assign{\pVar{result} zurückgeben}
+\end{struktogramm}

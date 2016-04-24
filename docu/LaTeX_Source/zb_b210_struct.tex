@@ -1,0 +1,40 @@
+\begin{struktogramm}(135,208)	
+	\assign{Umwandlung von Basis $b$ in Basis 10.}
+	\assign%
+	{
+		\begin{declaration}[Parameter:]
+			\description{\pVar{b}}{Eine \pKey{int} Variable, die die zu benutzende Zahlenbasis angibt.}
+			\description{\pVar{q}}{Eine \pKey{string} Variable, die die zu übersetzende Zahl der Zahlenbasis \pVar{b} enthält.}	
+		\end{declaration}
+		\begin{declaration}[lokale Variablen:]
+			\description{\pVar{step}}{Eine \pKey{int} Variable, die den aktuellen Schritt anzeigt.}
+			\description{\pVar{result}}{Eine \pKey{int} Variable, die das Endergebnis beinhaltet.}
+			\description{\pVar{charW}}{Eine \pKey{char} Variable für einen einzelnen Stellenwert des Eingabewerts \pVar{q}.}
+			\description{\pVar{intW}}{Eine \pKey{int} Variable, die  den Integer-Wert des aktuellen Stellenwerts \pVar{charW} darstellt.}	
+			\description{\pVar{laenge}}{Eine \pKey{int} Variable für die Länge des Quell-Strings \pVar{q}.}
+			\description{\pVar{z}}{Eine \pKey{int} Variable als Zähler.}
+		\end{declaration}
+	}
+	\sub{Länge von \pVar{q} abfragen}
+	\return{\pVar{laenge} zurückgeben}
+	\assign{\pVar{result}$ = 0$}
+	\assign{\pVar{step} = \pVar{laenge}\( - 1\)}
+	\assign{\pVar{z}$ = 0 $}
+	\while[8]{\pVar{step}\( > 0\)}
+		\sub{Character von \pVar{q} an Stelle \pVar{step} abfragen}
+		\return{\pVar{charW} zurückgeben}
+		\ifthenelse{5}{5}
+			{\pVar{charW} ist eine Zahl}{\sTrue}{\sFalse}
+			\assign[17]{\pVar{intW} $ = $ intwert(\pVar{charW})}
+		\change	
+			\sub{Wert des Characters ausrechnen}
+			\return{\pVar{intW} zurückgeben}
+		\ifend
+		\assign{\pVar{step} $ = $ \pVar{step}\( - 1\)}
+		\sub{Zwischenergebnis \pVar{intW} an Zähler \pVar{z} und Basis \pVar{b} berechnen.}
+		\return{\pVar{intW} zurückgeben}
+		\assign{\pVar{result}$ = $\pVar{result}$ + $\pVar{intW}}
+		\assign{\pVar{z}$ = $\pVar{z}$ + 1$}
+	\whileend 
+	\assign{\pVar{result} zurückgeben}
+\end{struktogramm}

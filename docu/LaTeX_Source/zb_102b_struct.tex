@@ -1,0 +1,47 @@
+\begin{struktogramm}(135,200)	
+	\assign{Umwandlung von Basis 10 in Basis $b$.}
+	\assign%
+	{
+		\begin{declaration}[Parameter:]
+			\description{\pVar{b}}{Eine \pKey{int} Variable, die die zu benutzende Zahlenbasis angibt.}
+			\description{\pVar{z}}{Eine \pKey{int} Variable, die die zu übersetzende Zahl der Zahlenbasis 10 enthält.}	
+		\end{declaration}
+		\begin{declaration}[lokale Variablen:]
+			\description{\pVar{step}}{Eine \pKey{int} Variable, die den aktuellen Schritt anzeigt.}
+			\description{\pVar{result}}{Eine \pKey{string} Variable, die das Endergebnis beinhaltet.}
+			\description{\pVar{q}}{Eine \pKey{int} Variable für den berechneten Quotienten.}
+			\description{\pVar{rest}}{Ein \pKey{int[]} Array zum Speichern der berechneten Restwerte.}
+			\description{\pVar{i}}{Eine \pKey{int} Variable für zusätzliche Zählungen.}
+			\description{\pVar{tmp}}{Eine \pKey{int} Variable für Zwischenergebnisse.}
+			\description{\pVar{tmpS}}{Eine \pKey{string} Variable für Zwischenergebnisse.}
+		\end{declaration}
+	}
+	\assign{\pVar{tmp} = 0}
+	\assign{\pVar{step} = 0}
+	\assign{\pVar{q}=\pVar{z}}
+	\assign{\pVar{rest}-Array anlegen}
+	\while[8]{\pVar{q}$ \neq 0$}
+		\assign{\pVar{rest[step]} = \pVar{q} mod \pVar{b}}
+		\assign{\pVar{q} = \pVar{q} / \pVar{b}}
+		\assign{\pVar{step} = \pVar{step} + 1}
+	\whileend 
+	\ifthenelse{5}{5}
+		{\pVar{b}$ > $ 10}{\sTrue}{\sFalse}
+		\assign{\pVar{i}=0}
+		\while[5]{\pVar{i}$ < $\pVar{step}}
+			\sub{\pKey{char} für Wert \pVar{rest[i]} erhalten}
+			\return{\pVar{tmpS} zurückgeben}
+			\assign{\pVar{result} = \pVar{result} + \pVar{tmpS}}
+			\assign{\pVar{i} = \pVar{i} + 1}
+		\whileend
+		\assign{\pVar{result} umdrehen}
+	\change
+		\assign{\pVar{i}=0}
+		\while[5]{\pVar{i}$ < $\pVar{step}}
+			\assign{\pVar{tmp} = \pVar{tmp} + \pVar{rest[i]}$ * 10^{i}$}
+			\assign[21]{\pVar{i} = \pVar{i} + 1}
+		\whileend
+		\assign{\pVar{result} = \pVar{tmp} als \pKey{String}}
+	\ifend
+	\assign{\pVar{result} zurückgeben}
+\end{struktogramm}

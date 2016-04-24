@@ -1,0 +1,128 @@
+\chapter{Beispiele}
+\section{Umwandlung ins Dezimalsystem}
+Beispiele der Umrechnung von der Zahlenbasis $b_{1}=x$ in die Zahlenbasis $b_{2}=10$.
+\subsection{Beispiel der Zahlenbasis $b_{1}=2$}
+Im Binärsystem gibt es die zwei Zeichen 0 und 1. 
+\subsubsection{Beispiel 1}
+Die Binärzahl $2x100$ wird wie folgt nach Formel~\ref{eq:b-10} umgerechnet: von rechts nach links:
+\begin{enumerate}
+    \item An Stelle $s=1$: \[x_{1} = 2^{0} * 0 = 1 * 0 = 0\]
+    \item An Stelle $s=2$: \[x_{2} = 2^{1} * 0 = 2 * 0 = 0\]
+    \item An Stelle $s=3$: \[x_{3} = 2^{2} * 1 = 4 * 1 = 4\]
+\end{enumerate}
+Die Summierung von $x_{1}$ bis $x_{3}$ ist:
+\[0 + 0 + 4 = 4\]
+\subsubsection{Beispiel 2}
+Die Binärzahl $2x110101$ wird wie folgt nach Formel~\ref{eq:b-10} umgerechnet: von rechts nach links:
+\begin{enumerate}
+    \item An Stelle $s=1$: \[x_{1} = 2^{0} * 1 = 1 * 1 = 1\]
+    \item An Stelle $s=2$: \[x_{2} = 2^{1} * 0 = 2 * 0 = 0\]
+    \item An Stelle $s=3$: \[x_{3} = 2^{2} * 1 = 4 * 1 = 4\]
+    \item An Stelle $s=4$: \[x_{4} = 2^{3} * 0 = 8 * 0 = 0\]
+    \item An Stelle $s=5$: \[x_{5} = 2^{4} * 1 = 16 * 1 = 16\]
+    \item An Stelle $s=6$: \[x_{6} = 2^{5} * 1 = 32 * 1 = 32\]. 
+\end{enumerate}
+Die Summierung von $x_{1}$ bis $x_{6}$ ist:
+\[1 + 0 + 4 + 0 + 16 + 32 = 53\]
+\subsection{Beispiel der Zahlenbasis $b_{1}=8$}
+Im Oktalsystem gibt es acht Zeichen von 0 bis 7. 
+\subsubsection{Beispiel 1}
+Die Oktalzahl $8x70$ wird wie folgt nach Formel~\ref{eq:b-10} umgerechnet: von rechts nach links:
+\begin{enumerate}
+    \item An Stelle $s=1$: \[x_{1} = 8^{0} * 0 = 1 * 0 = 0\]
+    \item An Stelle $s=2$: \[x_{2} = 8^{1} * 7 = 8 * 7 = 56\]
+\end{enumerate}
+Die Summierung von $x_{1}$ bis $x_{2}$ ist:
+\[0 + 56 = 56\]
+\subsection{Beispiel der Zahlenbasis $b_{1}=16$}
+Im Hexadezimalsystem gibt es sechzehn Zeichen von 0 bis $F$.
+\subsubsection{Beispiel 1}
+Die Hexadezimalzahl $16xD4$ wird wie folgt nach Formel~\ref{eq:b-10} von rechts nach links umgerechnet:
+\begin{enumerate}
+    \item An Stelle $s=1$: \[x_{1} = 16^{0} * 4 = 1 * 4 = 4\]
+    \item An Stelle $s=2$: \[x_{2} = 16^{1} * (4 + 9) = 16 * 13 = 208\]
+\end{enumerate}
+Die Summierung von $x_{1}$ bis $x_{2}$ ist:
+\[4 + 208 = 212\]
+\subsubsection{Beispiel 2}
+Die Hexadezimalzahl\index{hexadezimal} $16xAFFE$ wird wie folgt nach Formel~\ref{eq:b-10} von rechts nach links umgerechnet:
+\begin{enumerate}
+    \item An Stelle $s=1$: \[x_{1} = 16^{0} * (5 + 9) = 1 * 14 = 14\]
+    \item An Stelle $s=2$: \[x_{2} = 16^{1} * (6 + 9) = 16 * 15 = 240\]
+    \item An Stelle $s=3$: \[x_{3} = 16^{2} * (6 + 9) = 256 * 15 = 3840\]
+    \item An Stelle $s=4$: \[x_{4} = 16^{3} * (1 + 9) = 4096 * 10 = 40960\]
+\end{enumerate}
+Die Summierung von $x_{1}$ bis $x_{4}$ ist:
+\[14 + 240 + 3840 + 40960 = 45054\]
+
+\section{Umrechnung vom Dezimalsystem in andere Zahlensysteme}
+Beispiele der Umrechnung von der Zahlenbasis $b_{1}=10$ in die Zahlenbasis $b_{2}=x$.
+\subsection{Beispiel der Zahlenbasis $b_{2}=2$}
+Die Zahlenbasis\index{Zahlen!-basis} nennt sich \textbf{Binär}\index{binär}.
+\subsubsection{Beispiel 1}
+Die Dezimalzahl $z=13$ wird wie folgt nach Formel~\ref{eq:10-b} umgerechnet:
+\begin{enumerate}
+    \item An Stelle 1: $n=0$: \[\frac{s_{0}=z}{2}=\frac{13}{2}=q_{0}=6; r_{0}=1\]
+    \item An Stelle 2: $n=1$: \[\frac{s_{1}=q_{0}}{2}=\frac{6}{2}=q_{1}=3; r_{1}=0\]
+    \item An Stelle 3: $n=2$: \[\frac{s_{2}=q_{1}}{2}=\frac{3}{2}=q_{2}=1; r_{2}=1\]
+    \item An Stelle 4: $n=3$: \[\frac{s_{3}=q_{2}}{2}=\frac{1}{2}=q_{3}=0; r_{3}=1\]
+    \item Gesamtergebnis $g$ der Basis $b=2$: \[g=r_{0}*10^{0}+r_{1}*10^{1}+r_{2}*10^{2}+r_{3}*10^{3}\] \[g=1*1+0*10+1*100+1*1000=1101\]
+\end{enumerate}
+\(10x13=2x1101\)
+\subsubsection{Beispiel 2}
+Die Dezimalzahl $z=141$ wird wie folgt nach Formel~\ref{eq:10-b} umgerechnet:
+\begin{enumerate}
+    \item An Stelle 1: $n=0$: \[\frac{s_{0}=z}{2}=\frac{141}{2}=q_{0}=70; r_{0}=1\]
+    \item An Stelle 2: $n=1$: \[\frac{s_{1}=q_{0}}{2}=\frac{70}{2}=q_{1}=35; r_{1}=0\]
+    \item An Stelle 3: $n=2$: \[\frac{s_{2}=q_{1}}{2}=\frac{35}{2}=q_{2}=17; r_{2}=1\]
+    \item An Stelle 4: $n=3$: \[\frac{s_{3}=q_{2}}{2}=\frac{17}{2}=q_{3}=8; r_{3}=1\]
+    \item An Stelle 5: $n=4$: \[\frac{s_{4}=q_{3}}{2}=\frac{8}{2}=q_{4}=4; r_{4}=0\]
+    \item An Stelle 6: $n=5$: \[\frac{s_{5}=q_{4}}{2}=\frac{4}{2}=q_{5}=2; r_{5}=0\]
+    \item An Stelle 7: $n=6$: \[\frac{s_{6}=q_{5}}{2}=\frac{2}{2}=q_{6}=1; r_{5}=0\]
+    \item An Stelle 8: $n=7$: \[\frac{s_{6}=q_{6}}{2}=\frac{1}{2}=q_{6}=0; r_{6}=1\]
+    \item Gesamtergebnis $g$ der Basis $b=2$: \[g=r_{0}*10^{0}+r_{1}*10^{1}+r_{2}*10^{2}+r_{3}*10^{3}+r_{4}*10^{4}\]\[+r_{5}*10^{5}+r_{6}*10^{6}\] \[g=1*1+0*10+1*100+1*1000+0*10000\]\[+0*100000+0*1000000+1*10000000\]\[=10001101\]
+\end{enumerate}
+\(10x141=2x10001101\)
+
+\subsection{Beispiel der Zahlenbasis $b_{2}=3$}
+Die Zahlenbasis\index{Zahlen!-basis} nennt sich \textbf{Ternär}\index{ternär}.
+\subsubsection{Beispiel 1}
+Die Dezimalzahl $z=13$ wird wie folgt nach Formel~\ref{eq:10-b} umgerechnet:
+\begin{enumerate}
+	\item An Stelle 1: $n=0$: \[\frac{s_{0}=z}{3}=\frac{13}{3}=q_{0}=4;r_{0}=1\]
+	\item An Stelle 2: $n=1$: \[\frac{s_{1}=q_{0}}{3}=\frac{4}{3}=q_{1}=1;r_{1}=1\]
+	\item An Stelle 3: $n=2$: \[\frac{s_{2}=q_{1}}{3}=\frac{1}{3}=q_{2}=0;r_{2}=1\]
+	\item Gesamtergebnis $g$ der Basis $b=3$: \[g=r_{0}*10^{0}+r_{1}*10^{1}+r_{2}*10^{2}\] \[g=1*1+1*10+1*100=111\]
+\end{enumerate}
+\(10x13=3x111\)
+\subsubsection{Beispiel 2}
+Die Dezimalzahl $z=141$ wird wie folgt nach Formel~\ref{eq:10-b} umgerechnet:
+\begin{enumerate}
+    \item An Stelle 1: $n=0$: \[\frac{s_{0}=z}{3}=\frac{141}{3}=q_{0}=47; r_{0}=0\]
+    \item An Stelle 2: $n=1$: \[\frac{s_{1}=q_{0}}{3}=\frac{47}{3}=q_{1}=15; r_{1}=2\]
+    \item An Stelle 3: $n=2$: \[\frac{s_{2}=q_{1}}{3}=\frac{15}{3}=q_{2}=5; r_{2}=0\]
+    \item An Stelle 4: $n=3$: \[\frac{s_{3}=q_{2}}{3}=\frac{5}{3}=q_{3}=1; r_{3}=2\]
+    \item An Stelle 5: $n=4$: \[\frac{s_{4}=q_{3}}{3}=\frac{1}{3}=q_{4}=0; r_{4}=1\]
+    \item Gesamtergebnis $g$ der Basis $b=3$: \[g=r_{0}*10^{0}+r_{1}*10^{1}+r_{2}*10^{2}+r_{3}*10^{3}+r_{4}*10^{4}\] \[g=0*1+2*10+0*100+2*1000+1*10000\]\[=12020\]
+\end{enumerate}
+\(10x141=3x12020\)
+
+\subsection{Beispiel der Zahlenbasis $b_{2}=8$}
+Die Zahlenbasis\index{Zahlen!-basis} nennt sich \textbf{Oktal}\index{octal}.
+\subsubsection{Beispiel 1}
+Die Dezimalzahl $z=13$ wird wie folgt nach Formel~\ref{eq:10-b} umgerechnet:
+\begin{enumerate}
+	\item An Stelle 1: $n=0$: \[\frac{s_{0}=z}{8}=\frac{13}{8}=q_{0}=1;r_{0}=5\]
+	\item An Stelle 2: $n=1$: \[\frac{s_{1}=q_{0}}{8}=\frac{1}{8}=q_{1}=0;r_{1}=1\]
+	\item Gesamtergebnis $g$ der Basis $b=8$: \[g=r_{0}*10^{0}+r_{1}*10^{1}\] \[g=5*1+1*10=15\]
+\end{enumerate}
+\(10x13=8x15\)
+\subsubsection{Beispiel 2}
+Die Dezimalzahl $z=141$ wird wie folgt nach Formel~\ref{eq:10-b} umgerechnet:
+\begin{enumerate}
+    \item An Stelle 1: $n=0$: \[\frac{s_{0}=z}{8}=\frac{141}{8}=q_{0}=17; r_{0}=5\]
+    \item An Stelle 2: $n=1$: \[\frac{s_{1}=q_{0}}{8}=\frac{17}{8}=q_{1}=2; r_{1}=1\]
+    \item An Stelle 3: $n=2$: \[\frac{s_{2}=q_{1}}{8}=\frac{2}{8}=q_{2}=0; r_{2}=2\]
+    \item Gesamtergebnis $g$ der Basis $b=8$: \[g=r_{0}*10^{0}+r_{1}*10^{1}+r_{2}*10^{2}\] \[g=5*1+1*10+2*100\]\[=215\]
+\end{enumerate}
+\(10x141=8x215\)

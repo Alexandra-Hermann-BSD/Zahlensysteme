@@ -1,0 +1,16 @@
+\begin{struktogramm}(135,62)
+	\assign{Berechnung des Character-Werts}
+	\assign%
+	{
+		\begin{declaration}[Parameter:]
+			\description{\pVar{c}}{Eine \pKey{char} Variable, die den auszuwertenden Character angibt.}
+		\end{declaration}
+		\begin{declaration}[lokale Variablen:]
+			\description{\pVar{result}}{Eine \pKey{int} Variable, die das Endergebnis beinhaltet.}
+			\description{\pVar{z}}{Eine \pKey{int} Variable als Zwischenwert.}
+		\end{declaration}
+	}
+	\assign{Lese den \texttt{ASCII} oder \texttt{UTF-8} Wert des Parameters \pVar{c} aus und schreibe es in das Zwischenergebnis \pVar{z}.} 
+	\assign{\pVar{result}=\pVar{z} + 9 -- erste Buchstabenposition}
+	\assign{\pVar{result} zurückgeben}
+\end{struktogramm}

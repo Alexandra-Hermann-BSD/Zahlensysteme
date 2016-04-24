@@ -1,0 +1,167 @@
+\documentclass[a4paper,12pt,twoside]{book}
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage[german]{babel}
+\usepackage[pdftex]{graphicx}
+\usepackage[pdftex]{hyperref} 
+\usepackage{graphfig}
+\usepackage{makeidx}
+\usepackage{pdfpages}
+\usepackage{amsmath}
+\usepackage[german]{struktex}
+\usepackage{color}
+\usepackage{listings}
+
+\bibliographystyle{geralpha}
+
+% \sProofOn
+\definecolor{middlegray}{rgb}{0.5,0.5,0.5}
+\definecolor{lightgray}{rgb}{0.8,0.8,0.8}
+\definecolor{orange}{rgb}{0.8,0.3,0.3}
+\definecolor{yac}{rgb}{0.6,0.6,0.1}
+\definecolor{darkgreen}{rgb}{0.0,0.6,0.0}
+ 
+\lstset{
+   basicstyle=\scriptsize\ttfamily,
+   keywordstyle=\bfseries\ttfamily\color{orange},
+   stringstyle=\color{darkgreen}\ttfamily,
+   commentstyle=\color{middlegray}\ttfamily,
+   emph={square}, 
+   emphstyle=\color{blue}\texttt,
+   emph={[2]root,base},
+   emphstyle={[2]\color{yac}\texttt},
+   showstringspaces=false,
+   flexiblecolumns=false,
+   tabsize=2,
+   numbers=left,
+   numberstyle=\tiny,
+   numberblanklines=false,
+   stepnumber=1,
+   numbersep=10pt,
+   xleftmargin=15pt,
+   breaklines
+}
+
+\title{Zahlenbasen Umwandlung -- in Theorie und Praxis}
+\author{Alexander Hermann}
+
+\makeindex
+\begin{document}
+\maketitle
+\tableofcontents
+\lstlistoflistings 
+\listoffigures
+
+% \abstract{Umwandlung von Zahlenbasen der Basis $b_{1}$ in Basis $b_{2}$.}
+\chapter{Einleitung}
+Zahlen\index{Zahlen} in verschiedenen Zahlenbasen\index{Zahlen!-basen} werden im Wesentlichen für eine Vorvereinfachung zur menschlichen Kommunikation bzw.\ zur Umschreibung mit maschinellen Automatisierungen verwendet. 
+Bei der Ausführung von Software\index{Software} auf reiner Hardware\index{Hardware}-Ebene läuft alles letztendlich rein binär\footnote{auf der Basis $b = 2$}\index{binär}\index{Binärsystem} ab. 
+
+Da wir Menschen es gewohnt sind im Dezimalsystem\footnote{Basis $b = 10$} zu rechnen -- was möglicherweise daran liegt, dass der Mensch zehn Finger hat -- und auch dafür ausgebildet wurden, ist es im Allgemeinen einfacher, auf dieser Basis zu rechnen.
+\section{Zahlendarstellung}
+In vielen Programmiersprachen werden die Zahlensysteme\index{Zahlen!-systeme} \textbf{binär}\index{binär}, \textbf{octal}\index{octal}, \textbf{dezimal}\index{dezimal} und \textbf{hexadezimal}\index{hexadezimal} im Programmiercode zur Vereinfachung bzw.\ zur korrekten Interpretation durch den Compiler unterschiedlich eingegeben.
+\begin{itemize}
+	\item \textbf{binär:}\index{binär} \texttt{0b101110}
+	\item \textbf{octal:}\index{octal} \texttt{0c576302}
+	\item \textbf{dezimal:}\index{dezimal} \texttt{964}
+	\item \textbf{hexadezimal:}\index{hexadezimal} \texttt{0xAFFE09}
+\end{itemize}
+Da hier aber generell alle möglichen Zahlensysteme verwendet werden, bzw.\ die verallgemeinerte Form der Umrechnung erklärt werden soll, werden im Folgenden Zahlen eines bestimmten Zahlensystems der Basis $b$ wie folgt dargestellt:
+\[bxv\]
+Wobei $b$ für die entsprechende Basis steht, $x$ zur Markierung immer als \textbf{x} verwendet wird und $v$ der Wert im entsprechenden Zahlensystem\index{Zahlen!-system} ist.
+\subsection{Beispiel dazu}
+Ähnlich wie oben:
+\begin{itemize}
+	\item \textbf{binär:}\index{binär} \texttt{2x101110}
+	\item \textbf{octal:}\index{octal} \texttt{8x576302}
+	\item \textbf{dezimal:}\index{dezimal} \texttt{10x964}
+	\item \textbf{hexadezimal:}\index{hexadezimal} \texttt{16xAFFE09}
+\end{itemize} 
+Wäre das alles, wäre es wohl kaum nötig eine zusätzliche Darstellung zu verwenden.
+Aber an eher seltenen Zahlensystemen\index{Zahlen!-system}, ist eine generalisierte Darstellung dann doch vorteilhaft:
+\begin{itemize}
+	\item \textbf{ternär:}\index{ternär} \texttt{3x211201}
+	\item \textbf{quinär:}\index{quinär} \texttt{5x402314}
+	\item \textbf{tridezimal}\index{tridezimal} \texttt{13x5A9C0B3}
+	\item \textbf{oktovigesimal}\index{oktovigesimal} \texttt{28xNOR70KRANK}
+	\item \textbf{hexatridezimal:}\index{hexatridezimal} \texttt{36xGIRAFFE0Z6A}
+\end{itemize}
+\section{Hier mögliche Zahlen}
+Es gibt auch durchaus Umwandlungsmethoden, um $\real$eale Zahlen\index{Zahlen} umzurechnen.
+Hier wird aber nur mit $\nat$atürlichen Zahlen gearbeitet.
+
+\chapter{Umwandlungen}
+\section{Umwandlung von Zahlen der Basis $b$ in das Zahlensystem der Basis 10}
+\subsection{Allgemeine Formel zur Wandlung von Basis $b$ zu Basis 10}
+Diese Formel ist für Zahlenbasen\index{Zahlen!-basen} der Basis $b=2$ bis Basis $b=36$\footnote{Basis 36 bei \texttt{ASCII}; bei \texttt{UTF-8} auch größer} mit den Ziffern\index{Ziffern} $0$ bis $9$ und den Buchstaben $A$ bis $Z$ möglich.
+Die Formel setzt sich zusammen aus der Basis $b$, der Stellenposition\footnote{von rechts nach links} $s$ und dem angezeigten Wert $w$.
+Wenn der Wert ein Buchstabe ist, ist der Wert gleich Buchstabenstelle $bu_{s}$ im Alphabet $ + 9$ \(w = bu_{s} + 9\) ansonsten der Zahlenwert\index{Zahlen!-wert} \(w = w\). 
+Die Anzahl der maximalen Zeichen ist der Basiswert.\footnote{Deswegen ist 2 auch die kleinstmögliche Zahlenbasis, weil bei nur einem Zeichen kein Unterschied mehr möglich ist.} \marginpar{\textbf{Merke:} \textit{das erste Zeichen ist immer 0!}} 
+Im "`normalen"', dezimalen\index{dezimal} Zahlensystem\index{Zahlen!-system} von $0$ bis $9$ ist die $10$ bereits \textit{zweistellig}.
+\begin{equation}
+x_{s} = b^{s - 1} * w
+\label{eq:b-10}
+\end{equation}
+Die Ergebnisse der einzelnen Stellen werden summiert.
+
+\subsection{Berechnungsablauf}
+Der Berechnungsablauf kann wie in dem, in Abbildung~\ref{fig:struct1} dargestellten Struktogramm dargestellt werden.
+\begin{figure}
+	\input{zb_b210_struct}	
+	\caption{Struktogramm Umwandlung in das Dezimalsystem}
+	\label{fig:struct1}
+\end{figure}
+Die meisten Programmiersprachen haben vordefinierte Funktionen zur Längenberechnung von \pKey{string}-Variablen; ebenso gibt es Funktionen um an bestimmten Stellen eines Strings einzelne Zeichen abzurufen.
+Damit entfällt die genauere Beschreibung der Längenabfrage und der Stellenabfrage.
+Was hier noch fehlt, ist die Berechnung des Character-Werts, dies wird im Struktogramm in Abbildung~\ref{fig:struct1b} dargestellt, falls es sich \textbf{nicht} um eine Zahl handelt, so wie die Berechnung des Zwischenergebnisses, welches im Struktogramm in Abbildung~\ref{fig:struct1c} dargestellt wird.
+\begin{figure}
+	\input{zb_b210_structb}
+	\caption{Struktogramm Berechnung des Character-Werts}
+	\label{fig:struct1b}
+\end{figure}
+\begin{figure}
+	\input{zb_b210_structc}
+	\caption{Struktogramm Berechnung des Zwischenergebnisses}
+	\label{fig:struct1c}
+\end{figure}
+
+\section{Umwandlung von Zahlen der Basis 10 in das Zahlensystem der Basis $b$}
+Eine der Anleitungen fand ich im Web\footnote{http://www.arndt-bruenner.de \cite{zs:ab:2015}}.
+Die umzurechnende Zahl\index{Zahl} $z$ wird durch die Basis\index{Basis} $b$ geteilt; der Quotient\index{Quotient} $q$ wird zur erneuten Rechnung verwendet; der jeweilige Rest\index{Rest} $r$ wird mit 10 hoch dem Rechenschritt $s$ multipliziert; der erste Rechenschritt ist $s = 0$. Es wird so häufig gerechnet, bis der Quotient 0 ist. 
+\subsection{Allgemeine Formel zur Wandlung von Basis 10 zu Basis $b$}
+In dieser Formel wird der Quotient des vorherigen Rechenschritts als das Zwischenergebnis $s_{n}$ bezeichnet, wobei $n$ die Nummer des Rechenschritts ist. Die Zählung der Rechenschritte fängt mit 0 an.
+Also ist für die erste Stelle $s_{0}$ die umzuwandelnde Zahl $z$ der Basis $b$ zu verwenden.
+\begin{equation}
+\frac{s_{n}}{b} = q_{n} ; r_{n}
+\label{eq:10-b}
+\end{equation}
+\subsection{Berechnungsablauf}
+Nach dem ersten Rechenschritt (wenn der Quotient $q \neq 0$ ist), $n \geq 1$ gilt: 
+\begin{equation}
+s_{n}=q_{n-1}
+\end{equation}
+Das Gesamtergebnis $g$ ergibt sich wie folgt, wenn die Zielbasis $b < 10$ ist:
+\begin{equation}
+g = r_{0} * 10^0 + r_{1} * 10^1 \dots + r_{n} * 10^n
+\label{eq:10-b_g9}
+\end{equation}
+Wenn die Zielbasis $b > 10$ ist, müssen die einzelnen Zeichendarstellungen der Reste $r_{n}$ rückwärts in eine Zeichenfolge zusammengesetzt werden. Das Ganze ist auch im Struktogramm in Abbildung~\ref{fig:struct2} dargestellt.
+\begin{figure}
+	\input{zb_102b_struct}
+	\caption{Struktogramm Umwandlung vom Dezimalsystem}
+	\label{fig:struct2}	
+\end{figure}
+Die Umwandlung einer Zahl $ > 9$ läuft ähnlich wie im Struktogramm in Abbildung~\ref{fig:struct1b}; nur umgekehrt. Siehe dazu das Struktogramm in Abbildung~\ref{fig:struct2b}
+\begin{figure}
+	\input{zb_102b_structb}
+	\caption{Struktogramm Umwandlung einer Zahl in einen Character-Wert}
+	\label{fig:struct2b}
+\end{figure}
+
+
+\appendix
+\input{beispiele}
+\input{umsetzung_programmiersprachen}
+\bibliography{zahlenbasen}
+\printindex
+\end{document}
