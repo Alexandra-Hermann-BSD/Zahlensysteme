@@ -78,9 +78,8 @@ In vielen Programmiersprachen werden die Zahlensysteme\index{Zahlen!-systeme} \t
 	\item \textbf{hexadezimal:}\index{hexadezimal} \texttt{0xAFFE09}
 \end{itemize}
 Da hier aber generell alle möglichen Zahlensysteme verwendet werden, bzw.\ die verallgemeinerte Form der Umrechnung erklärt werden soll, werden im Folgenden Zahlen eines bestimmten Zahlensystems der Basis $b$ wie folgt dargestellt:
-\[bxv\]
-Wobei $b$ für die entsprechende Basis steht, $x$ zur Markierung immer als \textbf{x} verwendet wird und $v$ der Wert im entsprechenden Zahlensystem\index{Zahlen!-system} ist.
-\subsection{Beispiel dazu}
+\[b\mathrm{x}v\]
+Wobei $b$ für die entsprechende Basis steht, $\mathrm{x}$ zur Markierung immer als \textbf{x} verwendet wird und $v$ der Wert im entsprechenden Zahlensystem\index{Zahlen!-system} ist.
 Ähnlich wie oben:
 \begin{itemize}
 	\item \textbf{binär:}\index{binär} \texttt{2x101110}
@@ -97,9 +96,25 @@ Aber an eher seltenen Zahlensystemen\index{Zahlen!-system}, ist eine generalisie
 	\item \textbf{oktovigesimal}\index{oktovigesimal} \texttt{28xNOR70KRANK}
 	\item \textbf{hexatridezimal:}\index{hexatridezimal} \texttt{36xGIRAFFE0Z6A}
 \end{itemize}
+Diese Methode der Darstellung wählte ich, da es eine Ähnlichkeit zur oben gezeigten Softwareversion hat.
+
+Eine Andere, erwähnenswerte Alternative, wäre eine Darstellung, wie sie z.B.\ im \textit{"`Taschenbuch mathematischer Formeln und moderner Verfahren"'}~\cite{stocker1999taschenbuch} verwendet wird\footnote{gleiche Zahlen wie oben}: 
+\begin{itemize}
+	\item \textbf{binär:}\index{binär} $\mathtt{101110_{(2)}}$
+	\item \textbf{ternär:}\index{ternär} $\mathtt{211201_{(3)}}$
+	\item \textbf{quinär:}\index{quinär} $\mathtt{402314_{(5)}}$
+	\item \textbf{octal:}\index{octal} $\mathtt{576302_{(8)}}$
+	\item \textbf{dezimal:}\index{dezimal} $\mathtt{964_{(10)}}$
+	\item \textbf{tridezimal}\index{tridezimal} $\mathtt{5A9C0B3_{(13)}}$
+	\item \textbf{hexadezimal:}\index{hexadezimal} $\mathtt{AFFE09_{(16)}}$
+	\item \textbf{oktovigesimal}\index{oktovigesimal} $\mathtt{NOR70KRANK_{(28)}}$
+	\item \textbf{hexatridezimal:}\index{hexatridezimal} $\mathtt{GIRAFFE0Z6A_{(36)}}$
+\end{itemize}
 \section{Hier mögliche Zahlen}
-Es gibt auch durchaus Umwandlungsmethoden, um $\real$eale Zahlen\index{Zahlen} umzurechnen.
+Es gibt auch durchaus Umwandlungsmethoden, um Reale Zahlen\index{Zahlen} umzurechnen.
 Hier wird aber nur mit $\nat$atürlichen Zahlen gearbeitet.
+Bei Stöcker~\cite[Seite 4]{stocker1999taschenbuch} wird folgendes für die "`\textsf{Darstellung einer Zahl $z$ im Zahlensystem zur Basis $B$}"' dargestellt:
+\[ Z_{(B)} = \sum_{i=-m}^{n} z_{i}B^{i}, \  B \in \nat, \  B \geq 2  \]
 
 \chapter{Umwandlungen}
 \section{Umwandlung von Zahlen der Basis $b$ in das Zahlensystem der Basis 10}
@@ -137,7 +152,7 @@ Was hier noch fehlt, ist die Berechnung des Character-Werts, dies wird im Strukt
 \end{figure}
 
 \section{Umwandlung von Zahlen der Basis 10 in das Zahlensystem der Basis $b$}
-Eine der Anleitungen fand ich im Web\footnote{http://www.arndt-bruenner.de \cite{zs:ab:2015}}.
+Eine der Anleitungen fand ich im Web\footnote{\href{http://www.arndt-bruenner.de}{www.arndt-bruenner.de} \cite{zs:ab:2015}}.
 Die umzurechnende Zahl\index{Zahl} $z$ wird durch die Basis\index{Basis} $b$ geteilt; der Quotient\index{Quotient} $q$ wird zur erneuten Rechnung verwendet; der jeweilige Rest\index{Rest} $r$ wird mit 10 hoch dem Rechenschritt $s$ multipliziert; der erste Rechenschritt ist $s = 0$. Es wird so häufig gerechnet, bis der Quotient 0 ist. 
 \subsection{Allgemeine Formel zur Wandlung von Basis 10 zu Basis $b$}
 In dieser Formel wird der Quotient des vorherigen Rechenschritts als das Zwischenergebnis $s_{n}$ bezeichnet, wobei $n$ die Nummer des Rechenschritts ist. Die Zählung der Rechenschritte fängt mit 0 an.
