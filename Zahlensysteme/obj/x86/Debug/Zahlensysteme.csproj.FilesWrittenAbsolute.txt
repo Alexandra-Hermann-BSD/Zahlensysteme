@@ -4,3 +4,4 @@
 /Users/alex/DEV/Zahlensysteme/Zahlensysteme/bin/Debug/Zahlensysteme.exe
 /Users/alex/DEV/Zahlensysteme/Zahlensysteme/obj/x86/Debug/Zahlensysteme.exe
 /Users/alex/DEV/Zahlensysteme/Zahlensysteme/obj/x86/Debug/Zahlensysteme.exe.mdb
+/Users/alex/DEV/Zahlensysteme/Zahlensysteme/bin/Debug/libstetic.dll
