@@ -1,0 +1,6 @@
+/Users/alex/DEV/Zahlensysteme/Zahlensysteme/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/alex/DEV/Zahlensysteme/Zahlensysteme/obj/x86/Debug/Zahlensysteme.gtk-gui.gui.stetic
+/Users/alex/DEV/Zahlensysteme/Zahlensysteme/bin/Debug/Zahlensysteme.exe.mdb
+/Users/alex/DEV/Zahlensysteme/Zahlensysteme/bin/Debug/Zahlensysteme.exe
+/Users/alex/DEV/Zahlensysteme/Zahlensysteme/obj/x86/Debug/Zahlensysteme.exe
+/Users/alex/DEV/Zahlensysteme/Zahlensysteme/obj/x86/Debug/Zahlensysteme.exe.mdb

@@ -1,0 +1,13 @@
+﻿<Properties StartupItem="Zahlensysteme/Zahlensysteme.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Zahlensysteme/Program.cs">
+    <Files>
+      <File FileName="Zahlensysteme/Program.cs" Line="6" Column="2" />
+      <File FileName="Zahlensysteme/Base.cs" Line="330" Column="58" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

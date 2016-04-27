@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Zahlensysteme</name>
+    </assembly>
+    <members>
+        <member name="T:Zahlensysteme.IBase">
+            <summary>
+            Interface einer Zahlenbasis: Grundlagen.
+            </summary></member>
+        <member name="P:Zahlensysteme.IBase.Name">
+            <summary>
+            Der Name der Zahlenbasis.
+            </summary>
+            <value>Der Name der Zahlenbasis.</value></member>
+        <member name="P:Zahlensysteme.IBase.System">
+            <summary>
+            Die Anzahl der möglichen Zeichen.
+            </summary>
+            <value>Das Zahlensystem.</value></member>
+        <member name="P:Zahlensysteme.IBase.MaxSign">
+            <summary>
+            Das höchstmögliche Zeichen.
+            </summary>
+            <value>Die maximale Anzahl an Zeichen.</value></member>
+        <member name="M:Zahlensysteme.IBase.GetSign(System.UInt32)">
+            <summary>
+            Gibt das entsprechende Zeichen für die übergebene Zahl zurück.
+            </summary>
+            <returns>Das Zeichen für die übergebene Zahl.</returns>
+            <param name="number">Die zu übersetzende Zahl.</param></member>
+        <member name="M:Zahlensysteme.IBase.GetNumber(System.Char)">
+            <summary>
+            Gibt die Zahl des übergebenen Zeichens zurück.
+            </summary>
+            <returns>Die Zahl für das übergebene Zeichen.</returns>
+            <param name="sign">Das zu übersetzende Zeichen.</param></member>
+        <member name="T:Zahlensysteme.ZahlensystemException">
+            <summary>
+            Exception für Zahlensysteme.
+            </summary></member>
+        <member name="F:Zahlensysteme.ZahlensystemException.system">
+            <summary>
+            Das Zahlensystem als uint. Gleichzusetzen mit tryBase.System.
+            </summary></member>
+        <member name="F:Zahlensysteme.ZahlensystemException.tryBase">
+            <summary>
+            Die auszuprobierende Basis.
+            </summary></member>
+        <member name="M:Zahlensysteme.ZahlensystemException.#ctor(Zahlensysteme.IBase)">
+            <summary>
+            Konstruktor mit Angabe einer Zahlenbasis. Siehe <see cref="T:Zahlensysteme.ZahlensystemException" />.
+            </summary>
+            <param name="tb">Test-Basis.</param></member>
+        <member name="M:Zahlensysteme.ZahlensystemException.#ctor(System.UInt32)">
+            <summary>
+            Konstruktor mit Angabe einer Zahlenbasis. Siehe <see cref="T:Zahlensysteme.ZahlensystemException" />.
+            </summary>
+            <param name="s">Zahlenbasis als Zahl.</param></member>
+        <member name="M:Zahlensysteme.ZahlensystemException.#ctor(Zahlensysteme.IBase,System.UInt32)">
+            <summary>
+            Konstruktor mit Übergabe der verwendeten Zahlenbasis, so wie einer falschen Zahl außerhalb der Zahlenbasis.
+            Siehe <see cref="T:Zahlensysteme.ZahlensystemException" />.
+            </summary>
+            <param name="tb">verwendeten Zahlenbasis.</param>
+            <param name="s">falschen Zahl.</param></member>
+        <member name="T:Zahlensysteme.Base">
+            <summary>
+            Zahlenbasis; implementiert <see cref="T:Zahlensysteme.IBase" />.
+            </summary></member>
+        <member name="F:Zahlensysteme.Base.name">
+            <summary>
+            Der Name der Zahlenbasis.
+            </summary></member>
+        <member name="F:Zahlensysteme.Base.system">
+            <summary>
+            Die Zahlenbasis; die Anzahl der möglichen Zeichen.
+            </summary></member>
+        <member name="F:Zahlensysteme.Base.maxSign">
+            <summary>
+            Das höchstmögliche Zeichen.
+            </summary></member>
+        <member name="F:Zahlensysteme.Base.A_POS">
+            <summary>
+            Die Position von 'A'.
+            </summary></member>
+        <member name="F:Zahlensysteme.Base.ZERO_POS">
+            <summary>
+            Die Position von '0'.
+            </summary></member>
+        <member name="M:Zahlensysteme.Base.#ctor">
+            <summary>
+            Konstruktor ohne Parameter.
+            </summary></member>
+        <member name="M:Zahlensysteme.Base.#ctor(System.UInt32)">
+            <summary>
+            Konstruktor mit Übergabe einer Basis-Zahl.
+            </summary>
+            <param name="System">Basis-Zahl.</param></member>
+        <member name="M:Zahlensysteme.Base.#ctor(System.UInt32,System.String)">
+            <summary>
+            Konstruktor mit Übergabe einer Basis-Zahl und einem Namen der Zahlenbasis.
+            </summary>
+            <param name="System">Basis-Zahl.</param>
+            <param name="Name">Name der Zahlenbasis.</param></member>
+        <member name="M:Zahlensysteme.Base.SetName">
+            <summary>
+            Setzt den Namen diese Zahlenbasis.
+            </summary></member>
+        <member name="P:Zahlensysteme.Base.Name">
+            <summary>
+            Der Name der Zahlenbasis.
+            </summary>
+            <value>Der Name der Zahlenbasis.</value></member>
+        <member name="P:Zahlensysteme.Base.System">
+            <summary>
+            Die Anzahl der möglichen Zeichen.
+            </summary>
+            <value>Das Zahlensystem.</value></member>
+        <member name="P:Zahlensysteme.Base.MaxSign">
+            <summary>
+            Das höchstmögliche Zeichen.
+            </summary>
+            <value>Die maximale Anzahl an Zeichen.</value></member>
+        <member name="M:Zahlensysteme.Base.GetSign(System.UInt32)">
+            <summary>
+            Gibt das entsprechende Zeichen für die übergebene Zahl zurück.
+            </summary>
+            <returns>Das Zeichen für die übergebene Zahl.</returns>
+            <param name="number">Die zu übersetzende Zahl.</param></member>
+        <member name="M:Zahlensysteme.Base.GetNumber(System.Char)">
+            <summary>
+            Gibt die Zahl des übergebenen Zeichens zurück.
+            </summary>
+            <returns>Die Zahl für das übergebene Zeichen.</returns>
+            <param name="sign">Das zu übersetzende Zeichen.</param></member>
+        <member name="M:Zahlensysteme.Base.GetSignByNumber(System.UInt32)">
+            <summary>
+            Gibt das entsprechende Zeichen für die übergebene Zahl zurück.
+            </summary>
+            <returns>Das Zeichen für die übergebene Zahl.</returns>
+            <param name="number">Die zu übersetzende Zahl.</param></member>
+        <member name="M:Zahlensysteme.Base.GetNumberBySign(System.Char)">
+            <summary>
+            Gibt die Zahl des übergebenen Zeichens zurück.
+            </summary>
+            <returns>Die Zahl für das übergebene Zeichen.</returns>
+            <param name="sign">Das zu übersetzende Zeichen.</param></member>
+        <member name="M:Zahlensysteme.Base.ToString">
+            <summary>
+            Gibt grundlegende Informationen über diese Zahlenbasis zurück.
+            </summary>
+            <returns>A <see cref="T:System.String" /> that represents the current <see cref="T:Zahlensysteme.Base" />.</returns></member>
+        <!--FIXME: Invalid documentation markup was found for member M:Zahlensysteme.Base.Base10toBaseX(System.UInt64,System.UInt32,System.Boolean)-->
+        <!--FIXME: Invalid documentation markup was found for member M:Zahlensysteme.Base.BaseXtoBase10(System.String,System.UInt32,System.Boolean)-->
+        <!--FIXME: Invalid documentation markup was found for member M:Zahlensysteme.Base.BaseXtoBaseY(System.String,System.UInt32,System.UInt32,System.Boolean)-->
+    </members>
+</doc>
