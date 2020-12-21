@@ -1,0 +1,41 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "ahbsd.lib.numbersystems/1.0.0": {
+        "dependencies": {
+          "ahbsd.lib": "1.0.0"
+        },
+        "runtime": {
+          "ahbsd.lib.numbersystems.dll": {}
+        }
+      },
+      "ahbsd.lib/1.0.0": {
+        "runtime": {
+          "lib/netcoreapp3.1/ahbsd.lib.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ahbsd.lib.numbersystems/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ahbsd.lib/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dR5ve4Dg6LRLUXfwf+CPKp53OYJGWfny/gHPTR0Iv3yXP26H491HIAv+plIhHdGaNvK+hnxvUMuy3lqruwpYVQ==",
+      "path": "ahbsd.lib/1.0.0",
+      "hashPath": "ahbsd.lib.1.0.0.nupkg.sha512"
+    }
+  }
+}
