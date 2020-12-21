@@ -1,8 +1,0 @@
-/Users/alexanderhermann/Projects/Zahlensysteme/ahbsd.lib.numbersystems/ahbsd.lib.numbersystems/bin/Debug/netcoreapp3.1/ahbsd.lib.numbersystems.deps.json
-/Users/alexanderhermann/Projects/Zahlensysteme/ahbsd.lib.numbersystems/ahbsd.lib.numbersystems/bin/Debug/netcoreapp3.1/ahbsd.lib.numbersystems.dll
-/Users/alexanderhermann/Projects/Zahlensysteme/ahbsd.lib.numbersystems/ahbsd.lib.numbersystems/bin/Debug/netcoreapp3.1/ahbsd.lib.numbersystems.pdb
-/Users/alexanderhermann/Projects/Zahlensysteme/ahbsd.lib.numbersystems/ahbsd.lib.numbersystems/obj/Debug/netcoreapp3.1/ahbsd.lib.numbersystems.AssemblyInfoInputs.cache
-/Users/alexanderhermann/Projects/Zahlensysteme/ahbsd.lib.numbersystems/ahbsd.lib.numbersystems/obj/Debug/netcoreapp3.1/ahbsd.lib.numbersystems.AssemblyInfo.cs
-/Users/alexanderhermann/Projects/Zahlensysteme/ahbsd.lib.numbersystems/ahbsd.lib.numbersystems/obj/Debug/netcoreapp3.1/ahbsd.lib.numbersystems.csproj.CoreCompileInputs.cache
-/Users/alexanderhermann/Projects/Zahlensysteme/ahbsd.lib.numbersystems/ahbsd.lib.numbersystems/obj/Debug/netcoreapp3.1/ahbsd.lib.numbersystems.dll
-/Users/alexanderhermann/Projects/Zahlensysteme/ahbsd.lib.numbersystems/ahbsd.lib.numbersystems/obj/Debug/netcoreapp3.1/ahbsd.lib.numbersystems.pdb
