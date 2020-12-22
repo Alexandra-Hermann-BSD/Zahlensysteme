@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
 namespace ahbsd.lib.numbersystems
 {
     /// <summary>
     /// An Exception for tries with numeric systems, which didn't worked fine…
     /// </summary>
-    public class OutOfRangeException : Exception
+    public class OutOfRangeException : Exception, IEquatable<IOutOfRangeException>, IOutOfRangeException
     {
         /// <summary>
         /// The numeric system.
@@ -59,5 +62,75 @@ namespace ahbsd.lib.numbersystems
         /// </summary>
         /// <value>The base that was tried.</value>
         public IBase TryBase => tryBase;
+
+        /// <summary>
+        /// Finds out, if another object equals this object.
+        /// </summary>
+        /// <param name="obj">Other object.</param>
+        /// <returns><c>TRUE</c>, if the other object eaquals this object, otherwise <c>FALSE</c>.</returns>
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as OutOfRangeException);
+        }
+
+        /// <summary>
+        /// Finds out, if another object of <see cref="IOutOfRangeException"/> equals this object.
+        /// </summary>
+        /// <param name="other">Other object.</param>
+        /// <returns><c>TRUE</c>, if the other object eaquals this object, otherwise <c>FALSE</c>.</returns>
+        public bool Equals(IOutOfRangeException other)
+        {
+            return other != null &&
+                   System == other.System &&
+                   EqualityComparer<IBase>.Default.Equals(TryBase, other.TryBase);
+        }
+
+        /// <summary>
+        /// Gets the HashCode of this object.
+        /// </summary>
+        /// <returns>The HashCode of this object.</returns>
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(System, TryBase);
+        }
+
+        /// <summary>
+        /// Returns a string representing this object.
+        /// </summary>
+        /// <returns>A string representing this object.</returns>
+        public override string ToString()
+        {
+            StringBuilder b = new StringBuilder(Message);
+            string tmp = base.ToString();
+
+            if (!string.IsNullOrEmpty(tmp))
+            {
+                b.AppendLine(tmp);
+            }
+
+            return b.ToString();
+        }
+
+        /// <summary>
+        /// Compares two objects of <see cref="OutOfRangeException"/>, if they do eaquals.
+        /// </summary>
+        /// <param name="left">Object on the left side.</param>
+        /// <param name="right">Object on the right side.</param>
+        /// <returns><c>TRUE</c> if both objects eaquals, otherwise <c>FALSE</c>.</returns>
+        public static bool operator ==(OutOfRangeException left, OutOfRangeException right)
+        {
+            return EqualityComparer<IOutOfRangeException>.Default.Equals(left, right);
+        }
+
+        /// <summary>
+        /// Compares two objects of <see cref="OutOfRangeException"/>, if they do <c>not</c> eaquals.
+        /// </summary>
+        /// <param name="left">Object on the left side.</param>
+        /// <param name="right">Object on the right side.</param>
+        /// <returns><c>TRUE</c> if both objects don't eaquals, otherwise <c>FALSE</c>.</returns>
+        public static bool operator !=(OutOfRangeException left, OutOfRangeException right)
+        {
+            return !(left == right);
+        }
     }
 }
