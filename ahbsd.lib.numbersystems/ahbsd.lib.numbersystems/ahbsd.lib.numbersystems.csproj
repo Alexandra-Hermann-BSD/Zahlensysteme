@@ -2,8 +2,31 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackOnBuild>true</PackOnBuild>
+    <PackageVersion>1.0</PackageVersion>
+    <Authors>Heinrich Alexandra Hermann</Authors>
+    <Copyright>Copyright © 2020 Alexandra Hermann – Beratung, Software, Design</Copyright>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Owners>Alexandra Hermann – Beratung, Software, Design</Owners>
+    <PackageProjectUrl>https://github.com/Alexandra-Hermann-BSD/Zahlensysteme</PackageProjectUrl>
+    <Summary>A library for changing number bases UINT only.</Summary>
+    <PackageTags>Core</PackageTags>
+    <Title>Numbersystems Library</Title>
+    <Description>A library for changing number bases UINT only.
+I first had the idea of making a library like this, when I helped a person of business school to understand number systems. In my eyes the best way to describe how binary and hexadecimal work, is to help understand the basics on numeric bases.
+
+So after this person was able to describe the transformation in general, I started documentation and coding it. See on GitHub (most in german).</Description>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DocumentationFile>bin\Debug\netcoreapp3.1\ahbsd.lib.numbersystems.xml</DocumentationFile>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType></DebugType>
+    <DocumentationFile>bin\Release\netcoreapp3.1\ahbsd.lib.numbersystems.xml</DocumentationFile>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="ahbsd.lib" Version="1.0.0" />
   </ItemGroup>

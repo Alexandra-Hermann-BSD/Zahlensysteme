@@ -260,7 +260,7 @@ namespace ahbsd.lib.numbersystems
         /// </summary>
         /// <param name="valB10">The value of base 10.</param>
         /// <param name="X">The base to calculate to.</param>
-        /// <param name="way">Get the way of calculation?</c></param>
+        /// <param name="way">Get the way of calculation?</param>
         /// <returns>The value in base X plus the way of calculation.</returns>
         public static List<string> Base10toBaseX(ulong valB10, uint X, bool way)
         {
