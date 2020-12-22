@@ -43,7 +43,7 @@ namespace ahbsd.lib.numbersystems
         /// <param name="tb">The given system.</param>
         /// <param name="s">The number that is out of the base.</param>
         public OutOfRangeException(IBase tb, uint s)
-           : base(string.Format("{0} {1} is out of base {2}.", tb, s, tb.System))
+           : base(string.Format("{0}; {1} ({3}) is out of base {2}.", tb, s, tb.System, Base.GetSignByNumber(s)))
         {
             tryBase = tb;
             system = tb.System;

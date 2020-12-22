@@ -449,7 +449,15 @@ namespace ahbsd.lib.numbersystems
             }
             tmpS = string.Format("The result of converting '{0}' from base {1} to base {3} is '{2}'", valX, X, result[l], Y);
             if (way) result.Add(tmpS);
-            result.Add(result[l]);
+            if (way)
+            {
+                result.Add(result[l]);
+            }
+            else
+            {
+                result[0] = result[l];
+            }
+            
             return result;
         }
 
