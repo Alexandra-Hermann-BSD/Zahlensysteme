@@ -1,15 +1,14 @@
 ﻿using System;
-using System.Text;
 using System.Collections.Generic;
 
 
 namespace Zahlensysteme
 {
-	/// <summary>
-	/// Zahlenbasis; implementiert <see cref="Zahlensysteme.IBase"/>.
-	/// </summary>
-	public class Base : IBase
-	{
+    /// <summary>
+    /// Zahlenbasis; implementiert <see cref="IBase"/>.
+    /// </summary>
+    public class Base : IBase, IEquatable<IBase>
+    {
 		/// <summary>
 		/// Der Name der Zahlenbasis.
 		/// </summary>
@@ -17,11 +16,11 @@ namespace Zahlensysteme
 		/// <summary>
 		/// Die Zahlenbasis; die Anzahl der möglichen Zeichen.
 		/// </summary>
-		private uint system;
+		private readonly uint system;
 		/// <summary>
 		/// Das höchstmögliche Zeichen.
 		/// </summary>
-		private Char maxSign;
+		private readonly char maxSign;
 		/// <summary>
 		/// Die Position von 'A'.
 		/// </summary>
@@ -34,11 +33,12 @@ namespace Zahlensysteme
 		/// <summary>
 		/// Konstruktor ohne Parameter.
 		/// </summary>
+		/// <remarks>Als System wird das Dezimalsystem gewählt.</remarks>
 		public Base()
 		{
-			this.system = 10;
-			this.SetName();
-			this.maxSign = this.GetSign(9);
+			system = 10;
+			SetName();
+			maxSign = GetSign(9);
 		}
 
 		/// <summary>
@@ -47,9 +47,9 @@ namespace Zahlensysteme
 		/// <param name="System">Basis-Zahl.</param>
 		public Base(uint System)
 		{
-			this.system = System;
-			this.SetName();
-			this.maxSign = this.GetSign(System-1);
+			system = System;
+			SetName();
+			maxSign = this.GetSign(System-1);
 
 			if (System < 2)
 			{
@@ -64,9 +64,9 @@ namespace Zahlensysteme
 		/// <param name="Name">Name der Zahlenbasis.</param>
 		public Base(uint System, string Name)
 		{
-			this.system = System;
-			this.name = "Basis " + Name;
-			this.maxSign = this.GetSign(System-1);
+			system = System;
+			name = "Basis " + Name;
+			maxSign = GetSign(System-1);
 
 			if (System < 2)
 			{
@@ -79,7 +79,15 @@ namespace Zahlensysteme
 		/// </summary>
 		protected void SetName()
 		{
-			this.name = "Basis " + this.system.ToString();
+            string fmt = system switch {
+                2 => "Binär (Basis {0})",
+                3 => "Trinär (Basis {0})",
+                8 => "Oktär (Basis {0})",
+                10 => "Dezimal (Basis {0})",
+                16 => "Hexadezimal (Basis {0})",
+                _ => "Basis {0}",
+            };
+            name = string.Format(fmt, system);
 		}
 
 		#region IBase Members
@@ -87,19 +95,19 @@ namespace Zahlensysteme
 		/// Der Name der Zahlenbasis.
 		/// </summary>
 		/// <value>Der Name der Zahlenbasis.</value>
-		public string Name { get{ return this.name; } }
+		public string Name => name;
 
 		/// <summary>
 		/// Die Anzahl der möglichen Zeichen.
 		/// </summary>
 		/// <value>Das Zahlensystem.</value>
-		public uint System { get { return this.system; } }
+		public uint System => system;
 
 		/// <summary>
 		/// Das höchstmögliche Zeichen.
 		/// </summary>
 		/// <value>Die maximale Anzahl an Zeichen.</value>
-		public char MaxSign { get { return this.maxSign; } }
+		public char MaxSign => maxSign;
 
 		/// <summary>
 		/// Gibt das entsprechende Zeichen für die übergebene Zahl zurück.
@@ -110,7 +118,7 @@ namespace Zahlensysteme
 		{
 			char result;
 
-			if (number < this.system)
+			if (number < system)
 			{
 				result = GetSignByNumber(number);
 			}
@@ -131,7 +139,7 @@ namespace Zahlensysteme
 		{
 			uint result = GetNumberBySign(sign);
 
-			if (result >= this.system)
+			if (result >= system)
 			{
 				throw new ZahlensystemException(this, result);
 			}
@@ -147,8 +155,7 @@ namespace Zahlensysteme
 		/// <param name="number">Die zu übersetzende Zahl.</param>
 		public static char GetSignByNumber(uint number)
 		{
-			char result = ' ';
-			uint tmpI;
+            uint tmpI;
 
 			if (number < 10)
 			{
@@ -158,9 +165,9 @@ namespace Zahlensysteme
 			{
 				tmpI = number - 10 + A_POS;
 			}
-			result = (char)tmpI;
+            char result = (char)tmpI;
 
-			return result;
+            return result;
 		}
 
 		/// <summary>
@@ -170,33 +177,26 @@ namespace Zahlensysteme
 		/// <param name="sign">Das zu übersetzende Zeichen.</param>
 		public static uint GetNumberBySign(char sign)
 		{
-			uint result = 0;
-			uint tmp;
+            uint tmp;
 
-			if (Char.IsDigit(sign))
-			{
-				result = uint.Parse(sign.ToString());
-			}
-			else
-			{
-				tmp = (uint)sign;
-				result = tmp - A_POS + 10;
-			}
+            uint result;
+            if (char.IsDigit (sign)) {
+                result = uint.Parse (sign.ToString ());
+            } else {
+                tmp = sign;
+                result = tmp - A_POS + 10;
+            }
 
-			return result;
+            return result;
 		}
 
-		/// <summary>
-		/// Gibt grundlegende Informationen über diese Zahlenbasis zurück.
-		/// </summary>
-		/// <returns>A <see cref="System.String"/> that represents the current <see cref="Zahlensysteme.Base"/>.</returns>
-		public override string ToString()
+        /// <summary>
+        /// Gibt grundlegende Informationen über diese Zahlenbasis zurück.
+        /// </summary>
+        /// <returns>A <see cref="string"/> that represents the current <see cref="Base"/>.</returns>
+        public override string ToString()
 		{
-			StringBuilder result = new StringBuilder(this.name);
-			result.Append("; MaxSign: ");
-			result.Append(this.maxSign);
-
-			return result.ToString();
+			return string.Format ("{0}; MaxSign: {1}", name, maxSign);
 		}
 
 		/// <summary>
@@ -209,12 +209,11 @@ namespace Zahlensysteme
 		public static List<string> Base10toBaseX(ulong valB10, uint X, bool Rechenweg)
 		{
 			List<string> result;
-			string resultVal = String.Empty;
+			string resultVal = string.Empty;
 			IBase targetBase = new Base(X);
 			ulong quotient = valB10;
 			ulong tmpQuotient;
-			uint rest = 0;
-			List<uint> restList = new List<uint>();
+            List<uint> restList = new List<uint>();
 			string[] fmt = new string[2];
 			string tmpFmt;
 
@@ -223,21 +222,23 @@ namespace Zahlensysteme
 
 			if (!Rechenweg)
 			{
-				result = new List<string>(1);
-				result.Add(String.Empty);
-			}
+                result = new List<string> (1) {
+                    string.Empty
+                };
+            }
 			else
 			{
-				result = new List<string>();
-				result.Add(String.Empty);
-				result.Add("Rechenweg:");
-			}
+                result = new List<string> {
+                    string.Empty,
+                    "Rechenweg:"
+                };
+            }
 
 			while (quotient > 0)
 			{
 				tmpQuotient = quotient;
-				rest = (uint)(quotient % X);
-				quotient = quotient / X;
+                uint rest = (uint)(quotient % X);
+                quotient /= X;
 				restList.Add(rest);
 				if (Rechenweg)
 				{
@@ -249,13 +250,13 @@ namespace Zahlensysteme
 					{
 						tmpFmt = fmt[0];
 					}
-					result.Add(String.Format(tmpFmt, tmpQuotient, X, quotient, rest, targetBase.GetSign((uint)rest)));
+					result.Add(string.Format(tmpFmt, tmpQuotient, X, quotient, rest, targetBase.GetSign((uint)rest)));
 				}
 
-				resultVal = targetBase.GetSign((uint)rest).ToString() + resultVal;
+				resultVal = targetBase.GetSign(rest).ToString() + resultVal;
 			}
 
-			if (Rechenweg) result.Add(String.Format("Das Ergebnis der Umwandlung von {0} der Basis 10 in die Basis {1} ist '{2}'", valB10, X, resultVal));
+			if (Rechenweg) result.Add(string.Format("Das Ergebnis der Umwandlung von {0} der Basis 10 in die Basis {1} ist '{2}'", valB10, X, resultVal));
 			result[0] = resultVal;
 
 			return result;
@@ -287,15 +288,17 @@ namespace Zahlensysteme
 
 			if (!Rechenweg)
 			{
-				result = new List<string>(1);
-				result.Add(String.Empty);
-			}
+                result = new List<string> (1) {
+                    string.Empty
+                };
+            }
 			else
 			{
-				result = new List<string>();
-				result.Add(String.Empty);
-				result.Add("Rechenweg:");
-			}
+                result = new List<string> {
+                    string.Empty,
+                    "Rechenweg:"
+                };
+            }
 
 			while (step >= 0)
 			{
@@ -303,7 +306,7 @@ namespace Zahlensysteme
 
 				tmp = sourceSystem.GetNumber(charW);
 
-				if (Char.IsDigit(charW))
+				if (char.IsDigit(charW))
 				{
 					tmpFmt = fmt[1];
 				}
@@ -312,7 +315,7 @@ namespace Zahlensysteme
 					tmpFmt = fmt[0];
 				}
 
-				if (Rechenweg) result.Add(String.Format(tmpFmt, zaehler, charW, tmp, X, (uint)Math.Pow(X, zaehler), tmp * (uint)Math.Pow(X, zaehler)));
+				if (Rechenweg) result.Add(string.Format(tmpFmt, zaehler, charW, tmp, X, (uint)Math.Pow(X, zaehler), tmp * (uint)Math.Pow(X, zaehler)));
 				intW += tmp * (uint)Math.Pow(X, zaehler);
 
 				zaehler++;
@@ -320,7 +323,7 @@ namespace Zahlensysteme
 			}
 			result[0] = intW.ToString();
 
-			if (Rechenweg) result.Add(String.Format("Das Ergebnis der Umwandlung von '{0}' der Basis {1} in die Basis 10 ist {2}", valBX, X, result[0]));
+			if (Rechenweg) result.Add(string.Format("Das Ergebnis der Umwandlung von '{0}' der Basis {1} in die Basis 10 ist {2}", valBX, X, result[0]));
 			return result;
 		}
 
@@ -341,7 +344,7 @@ namespace Zahlensysteme
 
 			if (X!=10)
 			{
-				result = Base.BaseXtoBase10(valX, X, Rechenweg);
+				result = BaseXtoBase10 (valX, X, Rechenweg);
 				tmp = uint.Parse(result[0]);
 				l = result.Count;
 			}
@@ -356,7 +359,7 @@ namespace Zahlensysteme
 			{
 				if (Y!=10)
 				{
-					result.AddRange(Base.Base10toBaseX(tmp, Y, Rechenweg));
+					result.AddRange(Base10toBaseX (tmp, Y, Rechenweg));
 				}
 				else
 				{
@@ -367,19 +370,54 @@ namespace Zahlensysteme
 			{
 				if (Y!=10)
 				{
-					result = Base.Base10toBaseX(tmp, Y, Rechenweg);
+					result = Base10toBaseX (tmp, Y, Rechenweg);
 				}
 				else
 				{
-					result = new List<string>();
-					result.Add(tmp.ToString());
-				}
+                    result = new List<string> {
+                        tmp.ToString ()
+                    };
+                }
 			}
-			tmpS = String.Format("Das Ergebnis der Umwandlung von '{0}' der Basis {1} in die Basis {3} ist '{2}'", valX, X, result[l], Y);
+			tmpS = string.Format("Das Ergebnis der Umwandlung von '{0}' der Basis {1} in die Basis {3} ist '{2}'", valX, X, result[l], Y);
 			if (Rechenweg) result.Add(tmpS);
 			result.Add(result[l]);
 			return result;
 		}
-	}
+
+        public override bool Equals (object obj)
+        {
+            return Equals (obj as Base);
+        }
+
+        public bool Equals (IBase other)
+        {
+            return other != null &&
+                   Name == other.Name &&
+                   System == other.System &&
+                   MaxSign == other.MaxSign;
+        }
+
+        public override int GetHashCode ()
+        {
+            unchecked {
+                int hashCode = 416850122;
+                hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode (Name);
+                hashCode = hashCode * -1521134295 + System.GetHashCode ();
+                hashCode = hashCode * -1521134295 + MaxSign.GetHashCode ();
+                return hashCode;
+            }
+        }
+
+        public static bool operator == (Base left, Base right)
+        {
+            return EqualityComparer<IBase>.Default.Equals (left, right);
+        }
+
+        public static bool operator != (Base left, Base right)
+        {
+            return !(left == right);
+        }
+    }
 }
 

@@ -1,9 +1,8 @@
-﻿using System;
-using Gtk;
+﻿using Gtk;
 
 namespace Zahlensysteme
 {
-	class MainClass
+    class MainClass
 	{
 		public static void Main(string[] args)
 		{

@@ -4,52 +4,51 @@
 public partial class MainWindow
 {
 	private global::Gtk.UIManager UIManager;
-	
+
 	private global::Gtk.Action DateiAction;
-	
+
 	private global::Gtk.Action quitAction;
-	
+
 	private global::Gtk.Fixed fixed4;
-	
+
 	private global::Gtk.MenuBar menubar4;
 
-	protected virtual void Build ()
+	protected virtual void Build()
 	{
-		global::Stetic.Gui.Initialize (this);
+		global::Stetic.Gui.Initialize(this);
 		// Widget MainWindow
-		this.UIManager = new global::Gtk.UIManager ();
-		global::Gtk.ActionGroup w1 = new global::Gtk.ActionGroup ("Default");
-		this.DateiAction = new global::Gtk.Action ("DateiAction", global::Mono.Unix.Catalog.GetString ("Datei"), null, null);
-		this.DateiAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Datei");
-		w1.Add (this.DateiAction, null);
-		this.quitAction = new global::Gtk.Action ("quitAction", global::Mono.Unix.Catalog.GetString ("Beenden"), null, "gtk-quit");
-		this.quitAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Beenden");
-		w1.Add (this.quitAction, null);
-		this.UIManager.InsertActionGroup (w1, 0);
-		this.AddAccelGroup (this.UIManager.AccelGroup);
+		this.UIManager = new global::Gtk.UIManager();
+		global::Gtk.ActionGroup w1 = new global::Gtk.ActionGroup("Default");
+		this.DateiAction = new global::Gtk.Action("DateiAction", global::Mono.Unix.Catalog.GetString("Datei"), null, null);
+		this.DateiAction.ShortLabel = global::Mono.Unix.Catalog.GetString("Datei");
+		w1.Add(this.DateiAction, null);
+		this.quitAction = new global::Gtk.Action("quitAction", global::Mono.Unix.Catalog.GetString("Beenden"), null, "gtk-quit");
+		this.quitAction.ShortLabel = global::Mono.Unix.Catalog.GetString("Beenden");
+		w1.Add(this.quitAction, null);
+		this.UIManager.InsertActionGroup(w1, 0);
+		this.AddAccelGroup(this.UIManager.AccelGroup);
 		this.Name = "MainWindow";
-		this.Title = global::Mono.Unix.Catalog.GetString ("MainWindow");
+		this.Title = global::Mono.Unix.Catalog.GetString("MainWindow");
 		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 		// Container child MainWindow.Gtk.Container+ContainerChild
-		this.fixed4 = new global::Gtk.Fixed ();
+		this.fixed4 = new global::Gtk.Fixed();
 		this.fixed4.Name = "fixed4";
 		this.fixed4.HasWindow = false;
 		// Container child fixed4.Gtk.Fixed+FixedChild
-		this.UIManager.AddUiFromString ("<ui><menubar name='menubar4'><menu name='DateiAction' action='DateiAction'><menuitem name='quitAction' action='quitAction'/></menu></menubar></ui>");
-		this.menubar4 = ((global::Gtk.MenuBar)(this.UIManager.GetWidget ("/menubar4")));
+		this.UIManager.AddUiFromString("<ui><menubar name=\'menubar4\'><menu name=\'DateiAction\' action=\'DateiAction\'><menui" +
+				"tem name=\'quitAction\' action=\'quitAction\'/></menu></menubar></ui>");
+		this.menubar4 = ((global::Gtk.MenuBar)(this.UIManager.GetWidget("/menubar4")));
 		this.menubar4.Name = "menubar4";
-		this.fixed4.Add (this.menubar4);
-		global::Gtk.Fixed.FixedChild w2 = ((global::Gtk.Fixed.FixedChild)(this.fixed4 [this.menubar4]));
-		w2.X = 273;
-		w2.Y = 5;
-		this.Add (this.fixed4);
-		if ((this.Child != null)) {
-			this.Child.ShowAll ();
+		this.fixed4.Add(this.menubar4);
+		this.Add(this.fixed4);
+		if ((this.Child != null))
+		{
+			this.Child.ShowAll();
 		}
 		this.DefaultWidth = 755;
 		this.DefaultHeight = 565;
-		this.Show ();
-		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
-		this.quitAction.Activated += new global::System.EventHandler (this.OnQuitActionActivated);
+		this.Show();
+		this.DeleteEvent += new global::Gtk.DeleteEventHandler(this.OnDeleteEvent);
+		this.quitAction.Activated += new global::System.EventHandler(this.OnQuitActionActivated);
 	}
 }

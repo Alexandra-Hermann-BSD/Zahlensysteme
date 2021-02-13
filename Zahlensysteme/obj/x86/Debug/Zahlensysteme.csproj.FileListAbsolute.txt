@@ -1,0 +1,2 @@
+/Users/alexanderhermann/Projects/Zahlensysteme/Zahlensysteme/obj/x86/Debug/Zahlensysteme.csprojAssemblyReference.cache
+/Users/alexanderhermann/Projects/Zahlensysteme/Zahlensysteme/obj/x86/Debug/Zahlensysteme.csproj.CoreCompileInputs.cache

@@ -17,17 +17,17 @@ namespace Zahlensysteme
 		/// </summary>
 		/// <value>Das Zahlensystem.</value>
 		uint System { get; }
-		/// <summary>
-		/// Das höchstmögliche Zeichen.
-		/// </summary>
-		/// <value>Die maximale Anzahl an Zeichen.</value>
-		Char MaxSign { get; }
-		/// <summary>
-		/// Gibt das entsprechende Zeichen für die übergebene Zahl zurück.
-		/// </summary>
-		/// <returns>Das Zeichen für die übergebene Zahl.</returns>
-		/// <param name="number">Die zu übersetzende Zahl.</param>
-		Char GetSign(uint number);
+        /// <summary>
+        /// Das höchstmögliche Zeichen.
+        /// </summary>
+        /// <value>Die maximale Anzahl an Zeichen.</value>
+        char MaxSign { get; }
+        /// <summary>
+        /// Gibt das entsprechende Zeichen für die übergebene Zahl zurück.
+        /// </summary>
+        /// <returns>Das Zeichen für die übergebene Zahl.</returns>
+        /// <param name="number">Die zu übersetzende Zahl.</param>
+        char GetSign (uint number);
 		/// <summary>
 		/// Gibt die Zahl des übergebenen Zeichens zurück.
 		/// </summary>

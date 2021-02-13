@@ -2,10 +2,11 @@
 <stetic-interface>
   <configuration>
     <images-root-path>..</images-root-path>
+    <target-gtk-version>2.12</target-gtk-version>
   </configuration>
   <import>
-    <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <widget-library name="../bin/Debug/Zahlensysteme.exe" internal="true" />
+    <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
   </import>
   <widget class="Gtk.Window" id="MainWindow" design-size="755 565">
     <action-group name="Default">
@@ -33,7 +34,7 @@
         <child>
           <widget class="Gtk.MenuBar" id="menubar4">
             <property name="MemberName" />
-            <node name="__gtksharp_189_Stetic_Editor_ActionMenuBar" type="Menubar">
+            <node name="menubar4" type="Menubar">
               <node type="Menu" action="DateiAction">
                 <node type="Menuitem" action="quitAction" />
               </node>
