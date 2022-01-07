@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="-430.7142857142858" y="-15.0">com</node>
+    <node x="1102.1428571428569" y="-110.14285714285717">images</node>
+    <node x="1052.0" y="-180.71428571428572">netscape</node>
+    <node x="893.0" y="-189.0">org</node>
+    <node x="-423.0" y="-102.0">ahbsd</node>
+    <node x="782.4285714285713" y="-110.14285714285717">toolbarButtonGraphics</node>
+    <node x="732.0" y="-189.0">sun</node>
+    <node x="575.0" y="-189.0">jdk</node>
+    <node x="363.0" y="-189.0">META-INF</node>
+    <node x="187.0" y="-189.0">apple</node>
+    <node x="-71.0" y="-189.0">groovyjarjarasm</node>
+    <node x="-236.0" y="-189.0">java</node>
+    <node x="-423.0" y="-189.0">groovy</node>
+    <node x="615.0" y="-102.0">javax</node>
+    <node x="343.57142857142867" y="-102.0">groovyjarjarpicocli</node>
+    <node x="20.71428571428578" y="-102.0">groovyjarjarcommonscli</node>
+    <node x="-236.0" y="-102.0">groovyjarjarantlr</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic Compact" zoom="0.7" showDependencies="false" x="172.1428571428571" y="173.00000000000003" />
+  <SelectedNodes>
+    <node>ahbsd</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
