@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>PHP</ID>
+  <OriginalElement>/Users/alexanderhermann/IdeaProjects/Zahlensysteme/php</OriginalElement>
+  <nodes>
+    <node x="-8.0" y="196.0">\ahbsd\Zahlensysteme\Base</node>
+    <node x="68.5" y="0.0">\ahbsd\Zahlensysteme\IBase</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="\ahbsd\Zahlensysteme\Base" target="\ahbsd\Zahlensysteme\IBase" relationship="REALIZATION">
+      <point x="0.0" y="-138.0" />
+      <point x="0.0" y="59.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.0" showDependencies="false" x="643.5" y="230.0" />
+  <SelectedNodes>
+    <node>\ahbsd\Zahlensysteme\Base</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constants</Category>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

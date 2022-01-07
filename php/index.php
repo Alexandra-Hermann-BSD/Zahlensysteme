@@ -42,7 +42,8 @@ if ($numPostEntries > 3)
 }
 
 
-include_once './ahbsd.Zahlensysteme.php';
+include_once './IBase.php';
+include_once './Base.php';
 
 
 
